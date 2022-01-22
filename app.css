@@ -1,0 +1,198 @@
+*,
+*::before,
+*::after {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+--Blue: hsl(246, 80%, 60%);
+
+--light-red-work: hsl(15, 100%, 70%);
+--Soft-blue--play: hsl(195, 74%, 62%);
+--Light-red-study: hsl(348, 100%, 68%);
+--Lime-green-exercise: hsl(145, 58%, 55%);
+--Violet-social: hsl(264, 64%, 52%);
+--Soft-orange-selfcare: hsl(43, 84%, 65%);
+
+--Very-dark-blue: hsl(226, 43%, 10%);
+--Dark-blue: hsl(235, 46%, 20%);
+--Desaturated-blue: hsl(235, 45%, 61%);
+--Pale-Blue: hsl(236, 100%, 87%);
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Rubik', sans-serif;;
+}
+body{
+    /* background-color: var(--Very-dark-blue); */
+}
+main{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}
+ul{
+    list-style: none;
+}
+img{
+    display: block;
+    border: 3px solid white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+.time-tracker-grid{
+    display: grid;
+    gap: 1.5rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    'one'
+    'two'
+    'three'
+    'four'
+    'five'
+    'six'
+    'seven';
+    grid-template-columns: auto;
+}
+.time-tracker-grid:nth-child(1) {
+    grid-area: one;
+  }
+  .time-tracker-grid:nth-child(2) {
+    grid-area: two;
+  }
+  .time-tracker-grid:nth-child(3) {
+    grid-area: three;
+  }
+  .time-tracker-grid:nth-child(4) {
+    grid-area: four;
+  }
+  .time-tracker-grid:nth-child(5) {
+    grid-area: five;
+  }
+  .time-tracker-grid:nth-child(6) {
+    grid-area: six;
+  }
+  .time-tracker-grid:nth-child(7) {
+    grid-area: seven;
+  }
+
+
+.report-person{
+    background-color: var(--Blue);
+}
+.report-timeline{
+    background-color: var(--Dark-blue);
+}
+
+/* icon styling */
+
+.work-icon{
+    background-image: url(images/icon-work.svg);
+    background-color: var(--light-red-work);
+}
+.play-icon{
+    background-image: url(images/icon-play.svg);
+    background-color: var(--Soft-blue--play);
+}
+.study-icon{
+    background-image: url(images/icon-study.svg);
+    background-color: var(--Light-red-study);
+}
+.exercise-icon{
+    background-image: url(images/icon-exercise.svg);
+    background-color: var(--Lime-green-exercise);
+}
+.social-icon{
+    background-image: url(images/icon-social.svg);
+    background-color: var(--Violet-social);
+}
+.self-care-icon{
+    background-image: url(images/icon-self-care.svg);
+    background-color: var(--Soft-orange-selfcare);
+}
+.play-icon,
+.study-icon,
+.work-icon,
+.social-icon,
+.self-care-icon,
+.exercise-icon{
+    height: 3em;
+    border-top-right-radius: 1.5em;
+    border-top-left-radius: 1.5em;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 75em){
+    .time-tracker-grid{
+        grid-template-areas: 
+        "one two three four"
+        "one five six seven";
+    }
+
+    h1{
+        font-size: 3.8rem;
+        font-weight: 100;
+    }
+
+    /* report */
+    .report{
+        grid-row: 1 / span 2;
+        position: relative;
+        color: white;
+    }
+    .report-person{
+    
+        border-radius: 1.5em; 
+        padding: 2em 8em 2em 2em;
+    }
+    .report-person p{
+        margin-top: 3em;
+        font-size: 1.3rem;
+
+    }
+    .report-person h1{
+        margin-bottom: 4rem;
+    }
+    .report-timeline{
+        margin-top: -1rem;
+        padding: 2em;
+        line-height: 2.5em;
+        border-bottom-left-radius: 1.5em;
+        border-bottom-right-radius: 1.5em;
+        background-color: var(--Dark-blue);
+     
+    }
+
+    /* content styling */
+    .work-content,
+    .play-content,
+    .study-content,
+    .exercise-content,
+    .social-content,
+    .self-care-content{
+        /* padding: 2em; */
+        border-top-left-radius: 1.5em;
+        border-top-right-radius: 1.5em;
+        background-color: var(--Dark-blue);
+        color: white;
+        margin-top: -1rem;
+        display: block;
+        height:100%;
+        box-sizing: border-box;
+        /* place-content: center; */
+    }
+}
+
+/* footer*/
+.attribution{
+    text-align: center;
+    font-size: 1.6rem;
+    height: 2rem;
+    color: white;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
