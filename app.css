@@ -4,6 +4,7 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    color: #fff;
 }
 :root{
 --Blue: hsl(246, 80%, 60%);
@@ -22,26 +23,18 @@
 }
 html{
     font-size: 62.5%;
-    font-family: 'Rubik', sans-serif;;
+    font-family: 'Rubik', sans-serif; 
 }
 body{
-    /* background-color: var(--Very-dark-blue); */
+    background-color: var(--Very-dark-blue); 
 }
 main{
-    display: grid;
-    place-content: center;
-    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     min-height: 100vh; 
 }
-ul{
-    list-style: none;
-}
-img{
-    display: block;
-    border: 3px solid white;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-}
+
 .time-tracker-grid{
     display: grid;
     gap: 1.5rem;
@@ -56,7 +49,7 @@ img{
     'seven';
     grid-template-columns: auto;
 }
-.time-tracker-grid:nth-child(1) {
+ .time-tracker-grid:nth-child(1) {
     grid-area: one;
   }
   .time-tracker-grid:nth-child(2) {
@@ -79,6 +72,8 @@ img{
   }
 
 
+/* report styling */
+
 .report-person{
     background-color: var(--Blue);
 }
@@ -86,7 +81,45 @@ img{
     background-color: var(--Dark-blue);
 }
 
-/* icon styling */
+
+/* All grids */
+.total-card-style{
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+/*report */
+.report-timeline button{
+    /* display: flex;
+    justify-content: space-between; */
+    background: none;
+    border: none;
+    margin: .5em;
+    font: inherit;
+    outline: none;
+    font-size: 1.8rem;
+}
+.report-person p{
+    color: var(--Pale-Blue);
+}
+
+.style-cards{
+    background-color: var(--Dark-blue);
+    padding: 2em;
+    border-radius: 1em;
+    margin-top: -1.5rem;
+    position: relative;
+    z-index: 2;
+}
+.style-icon-cards{
+    height: 4rem;
+    border-top-left-radius: 1.5em;
+    border-top-right-radius: 1.5em;
+    background-position: calc(100% - 20px) top;
+    background-repeat: no-repeat;
+}
+
+/* icons */
 
 .work-icon{
     background-image: url(images/icon-work.svg);
@@ -112,26 +145,66 @@ img{
     background-image: url(images/icon-self-care.svg);
     background-color: var(--Soft-orange-selfcare);
 }
-.play-icon,
-.study-icon,
-.work-icon,
-.social-icon,
-.self-care-icon,
-.exercise-icon{
-    height: 3em;
-    border-top-right-radius: 1.5em;
-    border-top-left-radius: 1.5em;
-    background-position: right;
-    background-repeat: no-repeat;
+.previous{
+    color: var(--Pale-Blue);
 }
 
-@media screen and (min-width: 75em){
+
+/*mobile-view */
+
+@media screen and (max-width: 1000px) {
+    .report-person{
+        display: flex;
+        border-radius: 1em;
+        gap: 1em;
+        padding: 2em;
+        place-items: center;
+        position: relative;
+        z-index: 2;
+        margin-bottom: -1em;
+    }
+    .report-person img{
+      display: block;
+      border: 3px solid white;
+      width: 75px;
+      border-radius: 100%;
+  }
+  .report-timeline{
+      border-bottom-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+    padding: 1.5em;
+  }
+ 
+  /*card title and three dots */
+  .card-titles{
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    }
+    .card-titles::after{
+    content: url('images/icon-ellipsis.svg');
+    }
+     /* display: flex of Hours and previous track */
+    .time-mobile-view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .hrs{
+        font-size: 3rem;
+        font-weight: 100;
+    }
+}
+
+/* Desktop -view CSS Start */
+
+@media screen and (min-width: 1000px){
     .time-tracker-grid{
         grid-template-areas: 
         "one two three four"
         "one five six seven";
     }
-
+ 
     h1{
         font-size: 3.8rem;
         font-weight: 100;
@@ -139,54 +212,98 @@ img{
 
     /* report */
     .report{
-        grid-row: 1 / span 2;
-        position: relative;
+        grid-row: 1 / span 2; 
         color: white;
+        white-space: nowrap;
     }
     .report-person{
-    
         border-radius: 1.5em; 
         padding: 2em 8em 2em 2em;
+        position: relative;
+        z-index: 2;
+        margin-bottom: -1.7rem;
+    }
+    .report-person img{
+        display: block;
+        border: 3px solid white;
+        width: 100px;
+        border-radius: 100%;
     }
     .report-person p{
         margin-top: 3em;
         font-size: 1.3rem;
-
+        
     }
     .report-person h1{
         margin-bottom: 4rem;
     }
-    .report-timeline{
-        margin-top: -1rem;
-        padding: 2em;
-        line-height: 2.5em;
-        border-bottom-left-radius: 1.5em;
-        border-bottom-right-radius: 1.5em;
-        background-color: var(--Dark-blue);
-     
+    .report-person h1 span{
+        display: block;
+    }
+      /* buttons */
+    .report-timeline button{
+        display: grid;
     }
 
-    /* content styling */
-    .work-content,
-    .play-content,
-    .study-content,
-    .exercise-content,
-    .social-content,
-    .self-care-content{
-        /* padding: 2em; */
+    button{
+        cursor: pointer;
+    }
+    .report-timeline{
+        padding: 2em;
+        line-height: 2.5em; 
+        border-bottom-right-radius: 1.5em; 
+        border-bottom-left-radius: 1.5em;
+    }
+
+    /*icons*/
+    .style-icon-cards
+    {
+        height: 15rem;
         border-top-left-radius: 1.5em;
         border-top-right-radius: 1.5em;
-        background-color: var(--Dark-blue);
-        color: white;
-        margin-top: -1rem;
-        display: block;
-        height:100%;
-        box-sizing: border-box;
-        /* place-content: center; */
+        background-position: calc(100% - 20px) top;
+        background-repeat: no-repeat;
     }
+
+
+    /* card content styling */
+    .card-titles{
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 6em;
+        place-items: center;
+    }
+    .card-titles::after{
+        content: url('images/icon-ellipsis.svg');
+        cursor:pointer;
+        place-items: center;
+    }
+    .style-cards{
+        padding: 2em;
+        border-radius: 1.5em;
+        color: white;
+        margin-top: -10rem;
+        position: relative;
+        z-index: 2;
+    }
+    .hrs{
+        font-size: 5.8rem;
+        font-weight: 50;
+        margin: .5em .1em 0;
+    }
+   .previous{
+       font-size: 1.5rem;
+   }
+}
+/* Desktop view CSS End */
+
+/* text-muted class */
+.text-muted{
+    color: var(--Desaturated-blue);
 }
 
-/* footer*/
+ /* footer */
 .attribution{
     text-align: center;
     font-size: 1.6rem;
