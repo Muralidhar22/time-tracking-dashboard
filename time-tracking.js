@@ -13,7 +13,7 @@ const lastTime = document.getElementsByClassName("previous")
         .then(loadedData => {
            Array.from(hours).forEach((element, index) => {
                hours[index].textContent =  `${loadedData[index].timeframes.daily.current}hrs`
-               lastTime[index].textContent = `Last Week - ${loadedData[index].timeframes.daily.previous}`
+               lastTime[index].textContent = `Last Week - ${loadedData[index].timeframes.daily.previous}hrs`
            });
         })
         .catch(err => {
@@ -29,7 +29,7 @@ const lastTime = document.getElementsByClassName("previous")
         .then(loadedData => {
             Array.from(hours).forEach((element, index) => {
                 hours[index].textContent =  `${loadedData[index].timeframes.weekly.current}hrs`
-                lastTime[index].textContent = `Last Week - ${loadedData[index].timeframes.weekly.previous}`
+                lastTime[index].textContent = `Last Week - ${loadedData[index].timeframes.weekly.previous}hrs`
             });
         })
         .catch(err => {
@@ -45,7 +45,7 @@ const lastTime = document.getElementsByClassName("previous")
         .then(loadedData => {
             Array.from(hours).forEach((element, index) => {
                 hours[index].textContent =  `${loadedData[index].timeframes.monthly.current}hrs`
-                lastTime[index].textContent = `Last Week - ${loadedData[index].timeframes.monthly.previous}`
+                lastTime[index].textContent = `Last Week - ${loadedData[index].timeframes.monthly.previous}hrs`
             });
         })
         .catch(err => {
